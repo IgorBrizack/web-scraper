@@ -19,32 +19,59 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    bs_select = BeautifulSoup(html_content, 'html.parser')
+    bs_select = BeautifulSoup(html_content, "html.parser")
 
-    result = bs_select.find_all('a', class_='cs-overlay-link')
+    result = bs_select.find_all("a", class_="cs-overlay-link")
 
     refactored_result = []
 
     for a in result:
-        refactored_result.append(str(a['href']))
+        refactored_result.append(str(a["href"]))
 
     return refactored_result
 
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    bs_select_next = BeautifulSoup(html_content, 'html.parser')
+    bs_select_next = BeautifulSoup(html_content, "html.parser")
 
     try:
-        result = bs_select_next.find_all('a', class_='next page-numbers')
-        return str(result[0]['href'])
+        result = bs_select_next.find_all("a", class_="next page-numbers")
+        return str(result[0]["href"])
     except Exception:
         None
 
 
 # Requisito 4
 def scrape_news(html_content):
-    """Seu código deve vir aqui"""
+    bs_selec_page = BeautifulSoup(html_content, "html.parser")
+
+    content = {
+        "url": str(bs_selec_page.find_all("link", rel="canonical")[0]["href"]),
+        "title": str(
+            bs_selec_page.find_all("h1", class_="entry-title")[0].text.strip()
+        ),
+        "timestamp": str(
+            bs_selec_page.find_all("li", class_="meta-date")[0].text
+        ),
+        "writer": str(bs_selec_page.find_all("a", class_="url fn n")[0].text),
+        "reading_time": int(
+            (
+                (
+                    bs_selec_page.find_all("li", class_="meta-reading-time")[
+                        0
+                    ].text
+                ).split(" ")
+            )[0]
+        ),
+        "summary": str(bs_selec_page.main.article.div.find("p").text.strip()),
+        "category": str(
+            bs_selec_page.find_all("span", class_="label")[0].text
+        ),
+
+    }
+
+    return content
 
 
 # Requisito 5
