@@ -33,7 +33,13 @@ def scrape_updates(html_content):
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
+    bs_select_next = BeautifulSoup(html_content, 'html.parser')
+
+    try:
+        result = bs_select_next.find_all('a', class_='next page-numbers')
+        return str(result[0]['href'])
+    except Exception:
+        None
 
 
 # Requisito 4
