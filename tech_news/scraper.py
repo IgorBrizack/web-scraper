@@ -1,7 +1,20 @@
+import requests
+# from parsel import Selector
+from requests.exceptions import ReadTimeout, ConnectionError, HTTPError
+import time
+
+
 # Requisito 1
 def fetch(url):
-    # iniciando projeto
-    """Seu código deve vir aqui"""
+    time.sleep(1)
+
+    try:
+        result = requests.get(url, headers={"user-agent": "Fake user-agent"})
+        result.raise_for_status()
+    except (ReadTimeout, ConnectionError, HTTPError):
+        return None
+
+    return result.text
 
 
 # Requisito 2
