@@ -1,5 +1,5 @@
 import requests
-# from parsel import Selector
+from bs4 import BeautifulSoup
 from requests.exceptions import ReadTimeout, ConnectionError, HTTPError
 import time
 
@@ -19,7 +19,16 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    """Seu código deve vir aqui"""
+    bs_select = BeautifulSoup(html_content, 'html.parser')
+
+    result = bs_select.find_all('a', class_='cs-overlay-link')
+
+    refactored_result = []
+
+    for a in result:
+        refactored_result.append(str(a['href']))
+
+    return refactored_result
 
 
 # Requisito 3
