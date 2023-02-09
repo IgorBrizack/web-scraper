@@ -31,7 +31,6 @@ def search_by_date(date):
         result.append((content['title'], content['url']))
 
     return result
-    """Seu código deve vir aqui"""
 
 
 # Requisito 9
