@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import ReadTimeout, ConnectionError, HTTPError
 import time
+from tech_news.database import create_news
 
 
 # Requisito 1
@@ -76,4 +77,22 @@ def scrape_news(html_content):
 
 # Requisito 5
 def get_tech_news(amount):
-    """Seu código deve vir aqui"""
+    url = fetch('https://blog.betrybe.com')
+    data = scrape_updates(url)
+    result = []
+
+    while len(data) < amount:
+        new_page_url = scrape_next_page_link(url)
+        url = fetch(new_page_url)
+        new_links = scrape_updates(url)
+        data.extend(new_links)
+
+    for link in data:
+        if len(result) == amount:
+            break
+        html = fetch(link)
+        result.append(scrape_news(html))
+
+    print()
+    create_news(result)
+    return result
