@@ -93,6 +93,5 @@ def get_tech_news(amount):
         html = fetch(link)
         result.append(scrape_news(html))
 
-    print()
     create_news(result)
     return result
