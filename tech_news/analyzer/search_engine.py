@@ -4,8 +4,8 @@ from datetime import datetime as d
 
 # Requisito 7
 def search_by_title(title):
-    news = search_news({})
     result = []
+    news = search_news({})
 
     for content in news:
         if title.lower() in content['title'].lower():
@@ -16,13 +16,13 @@ def search_by_title(title):
 
 # Requisito 8
 def search_by_date(date):
+    result = []
     try:
         converted_data = (d.strptime(date, "%Y-%m-%d").strftime("%d/%m/%Y"))
     except ValueError:
         raise ValueError('Data inválida')
 
     news = search_news({'timestamp': converted_data})
-    result = []
 
     if len(news) == 0:
         return []
@@ -35,4 +35,14 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    result = []
+    news = search_news({})
+
+    if len(news) == 0:
+        return []
+
+    for content in news:
+        if category.lower() in content['category'].lower():
+            result.append((content['title'], content['url']))
+
+    return result
