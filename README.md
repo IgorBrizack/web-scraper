@@ -11,22 +11,24 @@ Desafios propostos:
  
  <details>
  <summary><strong> :desktop_computer: Ambiente virtual python:</strong></summary><br />
+    
+  1. **Clone o repositório**
  
  * Use o comando: `git@github.com:IgorBrizack/web-scraper.git`
  
-  1. **criar o ambiente virtual**
+  2. **criar o ambiente virtual**
 
   ```bash
 python3 -m venv .venv
   ```
 
-  2. **ativar o ambiente virtual**
+  3. **ativar o ambiente virtual**
 
   ```bash
 source .venv/bin/activate
   ```
 
-  3. **instalar as dependências no ambiente virtual**
+  4. **instalar as dependências no ambiente virtual**
 
   ```bash
 python3 -m pip install -r dev-requirements.txt
