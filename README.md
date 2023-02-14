@@ -10,7 +10,7 @@ Desafios propostos:
    
  
  <details>
- <summary><strong> :desktop_computer: Ambiente virtual python:</strong></summary><br />
+ <summary><strong> :desktop_computer: Configurações iniciais:</strong></summary><br />
     
   1. **Clone o repositório**
  
