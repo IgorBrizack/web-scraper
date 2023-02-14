@@ -30,3 +30,18 @@ source .venv/bin/activate
 python3 -m pip install -r dev-requirements.txt
   ```
  </details>
+ 
+ <details>
+ <summary><strong> :floppy_disk: Iniciando o banco de dados com Docker:</strong></summary><br />
+
+<code>docker-compose up -d mongodb</code>
+
+ </details>
+ 
+ ## Rodando a aplicação:
+ 
+ Ao finalizar os demais passos você poderá interagir com a aplicação através do terminal interativo apenas digitando a chamada abaixo:
+ 
+ <code>tech-news-analyzer</code>
+
+ 
