@@ -12,6 +12,8 @@ Desafios propostos:
  <details>
  <summary><strong> :desktop_computer: Ambiente virtual python:</strong></summary><br />
  
+ * Use o comando: `git@github.com:IgorBrizack/web-scraper.git`
+ 
   1. **criar o ambiente virtual**
 
   ```bash
@@ -42,6 +44,6 @@ python3 -m pip install -r dev-requirements.txt
  
  Ao finalizar os demais passos você poderá interagir com a aplicação através do terminal interativo apenas digitando a chamada abaixo:
  
- <code>tech-news-analyzer</code>
+ <code>python3 -m tech_news.main.</code>
 
  
