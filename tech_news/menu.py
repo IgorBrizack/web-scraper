@@ -45,15 +45,6 @@ def analyzer_menu():
         "4 - Listar top 5 categorias;\n 5 - Sair."
     )
 
-    # options = [
-    #     ('0', zero_option()),
-    #     ('1', first_option()),
-    #     ('2', second_option()),
-    #     ('3', third_option()),
-    #     ('4', fourth_option()),
-    #     ('5', fifth_option())
-    #     ]
-
     options = {
         "0": zero_option,
         "1": first_option,
@@ -63,11 +54,7 @@ def analyzer_menu():
         "5": fifth_option
     }
 
-    # return options[int(selected)]
-
     try:
         return options[selected]()
     except Exception:
         return sys.stderr.write("Opção inválida\n")
-
-# analyzer_menu()
