@@ -1,6 +1,6 @@
 # :snake: Web-scraper
 
-Esse projeto foi criado com intenção de utilizar um crawler para raspar os dados de noticias do blog da TRYBE.
+Esse projeto foi criado com intenção de utilizar um crawler para raspar os dados HTML do blog de notícias da TRYBE.
 
 Desafios propostos:
    - Coletar os dados HTML da página web.
